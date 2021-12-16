@@ -19,6 +19,16 @@ class CategorieRepositorie {
         this.bdCategories.push(categorieObj)
         console.log(categorieObj)
     }
+
+    list(): Category[]{
+        return this.bdCategories
+    }
+    
+    findByBNome(name: string){
+        const category = this.bdCategories.find(categorie => categorie.name === name)
+        return category
+
+    }
 }
 
 export { CategorieRepositorie }
