@@ -1,16 +1,22 @@
 import { Category } from "../model/Category";
+import { ICategorieRepository } from "./ICategorieRepository";
 
 interface ICategorie{
     name: string,
     description: string;
 }
 
-class CategorieRepositorie {
+class CategorieRepositorie implements ICategorieRepository {
 
     private bdCategories: Category[];
 
     constructor(){
         this.bdCategories = []
+    }
+
+    findByName(name: string): Category {
+        const category = this.bdCategories.find(categorie => categorie.name === name)
+        return category
     }
      
     create( {name, description}: ICategorie):void {
@@ -24,11 +30,6 @@ class CategorieRepositorie {
         return this.bdCategories
     }
     
-    findByBNome(name: string){
-        const category = this.bdCategories.find(categorie => categorie.name === name)
-        return category
-
-    }
 }
 
 export { CategorieRepositorie }

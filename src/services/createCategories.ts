@@ -1,16 +1,13 @@
 import { CategorieRepositorie } from "../repository/CategoryRepository"
+import { ICategorieRepository, IRequest } from "../repository/ICategorieRepository"
 
-interface IRequest{
-    name: string,
-    description: string;
-}
 
 class CreateCategories{
 
-    constructor(private categoriesRepository: CategorieRepositorie){}
+    constructor(private categoriesRepository: ICategorieRepository){}
 
     execute({name, description}: IRequest){
-        const categorieExistente =  this.categoriesRepository.findByBNome(name)
+        const categorieExistente =  this.categoriesRepository.findByName(name)
         if(categorieExistente){
             throw new Error("Categorie já cadastrada!")
         }
