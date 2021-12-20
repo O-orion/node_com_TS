@@ -1,5 +1,5 @@
-import { CategorieRepositorie } from "../repository/CategoryRepository"
-import { ICategorieRepository, IRequest } from "../repository/ICategorieRepository"
+import { CategorieRepositorie } from "../../repository/CategoryRepository"
+import { ICategorieRepository, IRequest } from "../../repository/ICategorieRepository"
 
 
 class CreateCategories{
